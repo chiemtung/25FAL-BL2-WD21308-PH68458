@@ -1,5 +1,6 @@
 
 #include <stdio.h>
+#include <math.h>
 void kiem_tra_so_nguyen()
 {
 
@@ -23,17 +24,41 @@ void kiem_tra_so_nguyen()
 	system("cls");
 
 }
-void ()
+void tbTongSoChiaHetCho3()
+{
+	int n;
+	int a[100];
+	int i;
+	for (i = 0; i < n; i++)
+	{
+		printf("Nhap phan tu a[%d]: ", i);
+		scanf("%d", &a[i]);
+	}
+	float tong = 0;
+	float tb = 0;
+	int count = 0;
+	for (i = 0; i < n; i++)
+	{
+		if (a[i] % 3 == 0)
+		{
+			tong += a[i];
+			count++;
+		}
+	}
+	tb = tong / count;
+	printf("Trung binh tong cac so chia het cho 3 la: %.2f\n", tb);
+
+}
 void lapChucnang(int chonChucnang)
 {
 	int tiepTuc = 1;
 	while (tiepTuc == 1)
 		switch (chonChucnang)
 		{case 1:
-			kiem_tra_so_nguyen();
+			tbTongSoChiaHetCho3();
 			break;
 		case 2:
-			//goi ten ham cn
+			kiem_tra_so_nguyen();
 			break;
 		case 3:
 			//goi ten ham cn3
@@ -52,7 +77,7 @@ int main()
 	do
 	{
 		printf("Menu");
-		printf("\n1. Kiem tra so nguyen to");
+		printf("\n1. Trung binh tong cac so chia het cho 3");
 		printf("\n2. Chuc nang 2");
 		printf("\n3. Chuc nang 3");
 		printf("\n0. Thoat");
