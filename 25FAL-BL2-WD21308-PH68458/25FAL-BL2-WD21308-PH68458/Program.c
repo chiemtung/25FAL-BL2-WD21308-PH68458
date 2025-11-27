@@ -29,6 +29,8 @@ void tbTongSoChiaHetCho3()
 	int n;
 	int a[100];
 	int i;
+	printf("Nhap so luong phan tu cua mang: ");
+	scanf("%d", &n);
 	for (i = 0; i < n; i++)
 	{
 		printf("Nhap phan tu a[%d]: ", i);
