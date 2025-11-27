@@ -53,7 +53,7 @@ void tbTongSoChiaHetCho3()
 	tb = tong / count;
 	printf("Trung binh tong cac so chia het cho 3 la: %.2f\n", tb);
 	printf("Ban co muon tiep tuc khong? (1: Co / 0: Khong): ");
-	scanf("%d", &tiepTuc);
+	scanf(" %d", &tiepTuc);
 	} while (tiepTuc == 1);
 
 }
