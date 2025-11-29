@@ -17,8 +17,7 @@ void kiem_tra_so_nguyen()
 	else
 		printf("%.0f khong phai la so nguyen\n", n);
 
-	printf("Ban co muon tiep tuc khong? (1: Co, 0: Khong):\n ");
-	scanf("%d", &tieptuc1);
+	
 
 }
 void tbTongSoChiaHetCho3()
@@ -27,8 +26,8 @@ void tbTongSoChiaHetCho3()
 	int n;
 	int a[100];
 	int i;
-	do
-	{
+	
+	
 		printf("Nhap so luong phan tu cua mang: ");
 		scanf("%d", &n);
 		for (i = 0; i < n; i++)
@@ -49,9 +48,7 @@ void tbTongSoChiaHetCho3()
 		}
 		tb = tong / count;
 		printf("Trung binh tong cac so chia het cho 3 la: %.2f\n", tb);
-		printf("Ban co muon tiep tuc khong? (1: Co / 0: Khong): ");
-		scanf("%d", &tiepTuc);
-	} while (tiepTuc == 1);
+	
 
 }
 void sapXepPhanTuMang1Chieu()
@@ -94,6 +91,7 @@ void lapChucnang(int chonChucnang)
 {
 	int tiepTuc = 1;
 	while (tiepTuc == 1)
+	{ 
 		switch (chonChucnang)
 		{
 		case 1:
@@ -105,6 +103,9 @@ void lapChucnang(int chonChucnang)
 		case 3:
 			sapXepPhanTuMang1Chieu();
 			break;
+		case 0:
+			return;
+			
 		default:
 			printf("Chuc nang khong hop le!\n");
 			break;
@@ -112,6 +113,7 @@ void lapChucnang(int chonChucnang)
 	printf("Ban co muon tiep tuc khong? (1: Co / 0: Khong): ");
 	scanf("%d", &tiepTuc);
 	system("cls");
+		}
 }
 int main()
 {
