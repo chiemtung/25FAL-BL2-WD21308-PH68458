@@ -12,7 +12,7 @@ void kiem_tra_so_nguyen()
 	printf("Nhap so nguyen: ");
 	scanf("%f", &n);
 
-	if (n - (int)n == 0)
+	if (n == (int)n )
 		printf("%.0f la so nguyen\n", n);
 	else
 		printf("%.0f khong phai la so nguyen\n", n);
