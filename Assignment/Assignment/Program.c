@@ -1,7 +1,41 @@
 #include <stdio.h>
 #include <math.h>
+//kiem tra so start
+void kiemTraSoNguyen(int n) {
+	printf("So %d co phai la so nguyen? => Co\n", n);
+}
 
-void kiem_tra_so_nguyen()
+
+void kiemTraSoNguyenTo(int n) {
+	if (n < 2) {
+		printf("So %d co phai la so nguyen to? => Khong\n", n);
+		
+	}
+
+	for (int i = 2; i <= sqrt(n); i++) {
+		if (n % i == 0) {
+			printf("So %d co phai la so nguyen to? => Khong\n", n);
+			
+		}
+	}
+	printf("So %d co phai la so nguyen to? => Co\n", n);
+}
+
+
+void kiemTraSoChinhPhuong(int n) {
+	if (n < 0) {
+		printf("So %d co phai la so chinh phuong? => Khong\n", n);
+		
+	}
+
+	int can = sqrt(n);//tinh can bac 2
+	if (can * can == n)// "can" lay so nguyen nen can*can se bang n neu n la so chinh phuong
+		printf("So %d co phai la so chinh phuong? => Co\n", n);
+	else
+		printf("So %d co phai la so chinh phuong? => Khong\n", n);
+}
+//kiem tra so end
+void kiem_tra_so_nguyen()         //MAIN
 {
 
 	float n;
@@ -9,13 +43,13 @@ void kiem_tra_so_nguyen()
 	do
 	{
 		system("cls");
-		printf("Nhap so nguyen: ");
-		scanf("%f", &n);
+		int kiemTraSo;
+		printf("Nhap so kiem tra: ");
+		scanf_s("%d", &kiemTraSo);
 
-		if (n == (int)n)
-			printf("%.0f la so nguyen\n", n);
-		else
-			printf("%.0f khong phai la so nguyen\n", n);
+		kiemTraSoNguyen(kiemTraSo);
+		kiemTraSoNguyenTo(kiemTraSo);
+		kiemTraSoChinhPhuong(kiemTraSo);
 
 		printf("Ban co muon tiep tuc khong? (1: Co, 0: Khong):\n ");
 		scanf("%d", &tieptuc1);
@@ -24,7 +58,41 @@ void kiem_tra_so_nguyen()
 	system("cls");
 
 }
-void kiem_tra_so_thuc()
+
+
+
+
+
+void uocChungLonNhat(int a, int b) {
+	int x = a, y = b;
+
+	while (x != y) {
+		if (x > y)
+			x = x - y;
+		else
+			y = y - x;
+	}
+
+	printf("Uoc so chung lon nhat cua %d va %d la: %d\n", a, b, x);
+}
+void boiChungNhoNhat(int a, int b) {
+	int x = a, y = b;
+	int temp_a = a, temp_b = b;
+
+	
+	while (x != y) {
+		if (x > y)
+			x = x - y;
+		else
+			y = y - x;
+	}
+
+	int boiChungNhoNhat = (temp_a * temp_b) / x;
+
+	printf("Boi so chung nho nhat cua %d va %d la: %d\n", temp_a, temp_b, boiChungNhoNhat);
+}
+
+void uocVaBoiTrungCua2So()        //MAIN
 {
 
 	float n;
@@ -32,13 +100,13 @@ void kiem_tra_so_thuc()
 	do
 	{
 		system("cls");
-		printf("Nhap so thuc: ");
-		scanf("%f", &n);
+		int x, y;
 
-		if (n - (int)n != 0)
-			printf("%f la so thuc\n", n);
-		else
-			printf("%f khong phai la so thuc\n", n);
+		printf("Nhap hai so nguyen x va y: ");
+		scanf("%d %d", &x, &y);
+
+		uocChungLonNhat(x, y);
+		boiChungNhoNhat(x, y);
 		printf("Ban co muon tiep tuc khong? (1: Co, 0: Khong):\n ");
 		scanf("%d", &tieptuc2);
 	} while (tieptuc2 == 1);
@@ -222,7 +290,7 @@ int main()
 			kiem_tra_so_nguyen();
 			break;
 		case 2:
-			kiem_tra_so_thuc();
+			uocVaBoiTrungCua2So();
 			break;
 		case 3:
 			dien_tich();
