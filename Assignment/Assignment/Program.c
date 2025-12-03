@@ -92,7 +92,7 @@ void boiChungNhoNhat(int a, int b) {
 	printf("Boi so chung nho nhat cua %d va %d la: %d\n", temp_a, temp_b, boiChungNhoNhat);
 }
 
-void uocVaBoiTrungCua2So()        //MAIN
+void uoc_va_boi_chung_cua_2_so()        //MAIN
 {
 
 	float n;
@@ -112,28 +112,57 @@ void uocVaBoiTrungCua2So()        //MAIN
 	} while (tieptuc2 == 1);
 	system("cls");
 }
-void dien_tich()
+
+void karaoke(float gioBD, float gioKT) {
+	// kiem tra gio hop le
+	if (gioBD < 12 || gioKT > 23 || gioBD >= gioKT) {
+		printf("Gio khong hop le. Quan chi mo tu 12h den 23h.\n");
+		return;
+	}
+
+	float soGio = gioKT - gioBD;
+	float tongTien = 0;
+
+	// Tinh tien theo so gio hat
+	if (soGio <= 3) {
+		tongTien = soGio * 150000;
+	}
+	else {
+		tongTien = 3 * 150000; // 3h dau tien binh thuong
+		tongTien += (soGio - 3) * 150000 * 0.7; // tu gio thu 4 discount 30%
+	}
+
+	// discount them 10% tu 14h den 17h
+	if (gioBD >= 14 && gioBD <= 17) {
+		tongTien *= 0.9;
+	}
+
+	printf("So gio hat: %.1f gio\n", soGio);
+	printf("Tong tien can thanh toan: %.0f VND\n", tongTien);
+}
+void tinh_tien_karaoke()
 {
 
 	int tieptuc3;
 	do
 	{
 		system("cls");
-		double chieudai, chieurong, dientich, chuvi;
-		printf("Nhap chieu dai hinh chu nhat: ");
-		scanf("%lf", &chieudai);
-		printf("Nhap chieu rong hinh chu nhat: ");
-		scanf("%lf", &chieurong);
-		dientich = chieudai * chieurong;
-		chuvi = 2 * (chieudai + chieurong);
-		printf("Dien tich hinh chu nhat la: %lf * %lf = %.2lf\n", chieudai, chieurong, dientich);
-		printf("Chu vi hinh chu nhat la: 2 * (%lf + %lf) = %.2lf\n", chieudai, chieurong, chuvi);
+		float gioBD, gioKT;
+
+		printf("Nhap gio bat dau: ");
+		scanf("%f", &gioBD);
+
+		printf("Nhap gio ket thuc: ");
+		scanf("%f", &gioKT);
+
+		karaoke(gioBD, gioKT);
+
 		printf("Ban co muon tiep tuc khong? (1: Co, 0: Khong):\n ");
 		scanf("%d", &tieptuc3);
 	} while (tieptuc3 == 1);
 	system("cls");
 }
-void test1()
+void tinh_tien_dien()
 {
 
 
@@ -252,14 +281,7 @@ void test7()
 	} while (tieptuc10 == 1);
 	system("cls");
 }
-//void vong_lap()
-//{
-//	
-//	for (int i = 0; i < 5; i++)// (i++ tang 1 don vi) (i+=n de tang n don vi)
-//	{
-//		printf("Lan lap thu: %d\n", i + 1);
-//	}
-//}
+
 int main()
 {
 
@@ -290,10 +312,10 @@ int main()
 			kiem_tra_so_nguyen();
 			break;
 		case 2:
-			uocVaBoiTrungCua2So();
+			uoc_va_boi_chung_cua_2_so();
 			break;
 		case 3:
-			dien_tich();
+			tinh_tien_karaoke();
 			break;
 		case 4:
 			test1();
