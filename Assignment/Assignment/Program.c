@@ -170,7 +170,30 @@ void tinh_tien_dien()
 	do
 	{
 		system("cls");
-		printf("its work\n");
+		int kwh, i;
+		float tien = 0;
+
+		// bang gia theo tung bac
+		int muc_kwh[] = { 50, 50, 100, 100, 100, 999999 }; // 999999 dai dien bac cuoi ko gioi han
+		float gia[] = { 1678, 1734, 2014, 2536, 2834, 2927 };
+
+		printf("\n=== TINH TIEN DIEN ===\n");
+		printf("Nhap so kWh dien su dung: ");
+		scanf("%d", &kwh);
+
+		if (kwh < 0) {
+			printf("So kWh khong hop le!\n");
+			return;
+		}
+
+		for (i = 0; kwh > 0; i++)
+		{
+			int dung = (kwh > muc_kwh[i]) ? muc_kwh[i] : kwh; // so kwh trong bac hien tai
+			tien += dung * gia[i];
+			kwh -= dung;
+		}
+
+		printf("So tien phai tra la: %.0f VND\n", tien);
 
 
 
@@ -318,7 +341,7 @@ int main()
 			tinh_tien_karaoke();
 			break;
 		case 4:
-			test1();
+			tinh_tien_dien();
 			break;
 		case 5:
 			test2();
