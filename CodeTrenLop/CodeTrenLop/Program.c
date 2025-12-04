@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <math.h>
+#include <string.h>
 void kiem_tra_so_nguyen()
 {
 
@@ -88,6 +89,19 @@ void sapXepPhanTuMang1Chieu()
 		printf("mang[%d]= %d\n", i, intergerArray[i]);
 	}
 }
+void demoStrings()
+{
+	char mangDuLieu[100]; 
+	while (getchar() != '\n');
+
+	printf("Nhap chuoi ky tu: ");
+	fgets(mangDuLieu, sizeof(mangDuLieu), stdin);
+	printf("Chuoi ky tu vua nhap la: %s\n", mangDuLieu);
+	//puts(MangkyTu);
+	printf("Do dai chuoi ky tu la: %d\n", strlen(mangDuLieu) -1 );
+	
+
+}
 void lapChucnang(int chonChucnang)
 {
 	int tiepTuc = 1;
@@ -101,7 +115,7 @@ void lapChucnang(int chonChucnang)
 			kiem_tra_so_nguyen();
 			break;
 		case 3:
-			sapXepPhanTuMang1Chieu();
+			demoStrings();
 			break;
 		default:
 			printf("Chuc nang khong hop le!\n");
@@ -111,6 +125,7 @@ void lapChucnang(int chonChucnang)
 	scanf("%d", &tiepTuc);
 	system("cls");
 }
+
 int main()
 {
 	int chonChucnang;

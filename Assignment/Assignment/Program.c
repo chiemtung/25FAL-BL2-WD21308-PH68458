@@ -419,6 +419,7 @@ void game_lott()
 {
 
 
+	
 	int tieptuc9;
 	do
 	{
@@ -426,8 +427,6 @@ void game_lott()
 		int so1, so2;
 		int soNgauNhien1, soNgauNhien2;
 
-		// khoi tao bo sinh ngau nhien
-		srand(time(NULL));
 
 		printf("=== FPOLY-LOTT (2/15) ===\n");
 		printf("Nhap so thu nhat (01-15): ");
@@ -437,11 +436,10 @@ void game_lott()
 		//ktra hop le
 		if (so1 < 1 || so1 > 15 || so2 < 1 || so2 > 15) {
 			printf("So nhap vao khong hop le! Chi chap nhan tu 01 den 15.\n");
-			return 0;
 		}
 
 		// generate 2 so ngau nhien
-		soNgauNhien1 = rand() % 15 + 1;  // Số từ 1-15
+		soNgauNhien1 = rand() % 15 + 1;  
 		soNgauNhien2 = rand() % 15 + 1;
 
 		// dam bao 2 so khac nhau
@@ -544,7 +542,8 @@ void tinh_toan_phan_so()
 
 int main() 
 {
-
+	// khoi tao bo sinh ngau nhien
+	srand(time(NULL));
 	int chon;
 
 	do
@@ -559,7 +558,7 @@ int main()
 		printf("6. Liai suat vay ngan hang"); printf("\n");
 		printf("7. Vay tien mua xe"); printf("\n");
 		printf("8. Sap xep thong tin sinh vien"); printf("\n");
-		printf("9. Game FPoly_Lott"); printf("\n");
+		printf("9. Game"); printf("\n");
 		printf("10. Tinh toan phan so"); printf("\n");
 		printf("0. Thoat"); printf("\n");
 		printf("Vui long chon chuc nang:"); printf("\n");
@@ -593,7 +592,7 @@ int main()
 			sap_xep_thong_tin_sv();
 			break;
 		case 9:
-			game_lott;
+			game_lott();
 			break;
 		case 10:
 			tinh_toan_phan_so();
