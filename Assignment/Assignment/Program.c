@@ -559,7 +559,7 @@ int main()
 		printf("6. Liai suat vay ngan hang"); printf("\n");
 		printf("7. Vay tien mua xe"); printf("\n");
 		printf("8. Sap xep thong tin sinh vien"); printf("\n");
-		printf("9. Game"); printf("\n");
+		printf("9. Game FPoly_Lott"); printf("\n");
 		printf("10. Tinh toan phan so"); printf("\n");
 		printf("0. Thoat"); printf("\n");
 		printf("Vui long chon chuc nang:"); printf("\n");
